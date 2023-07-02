@@ -1,4 +1,4 @@
-Welcome to the BMI App wiki!
+Welcome to the BMI App Wiki!
 
 ## Overview
 The BMI Calculator App is a user-friendly application that allows users to calculate their Body Mass Index (BMI) quickly and conveniently. With a minimal, modern, and soothing look, this app provides an intuitive and aesthetically pleasing user interface.
@@ -7,13 +7,13 @@ The Body Mass Index is a widely recognized measurement for assessing an individu
 
 ## Key Features
 ### Simple BMI Calculation: 
-The app enables users to calculate their BMI by entering their height and weight values effortlessly. The calculation is performed instantly, providing immediate feedback to the user.
+The app enables users to calculate their BMI by effortlessly entering their height and weight values. The calculation is performed instantly, providing immediate feedback to the user.
 
 ### Intuitive User Interface: 
 The app's design is focused on delivering a minimal, modern, and soothing user interface. The interface has been carefully crafted to provide an enjoyable user experience, ensuring ease of use for individuals of all ages.
 
 ### Error Handling: 
-The app includes an error dialog to handle exceptional cases, such as when invalid input is entered. This ensures that users are informed about any issues with their inputs and allows them to correct them easily.
+The app includes an error dialog to handle exceptional cases, such as when invalid input is entered. This ensures that users are informed about any issues with their inputs and allows them to easily correct them.
 
 ### Privacy and Data Security: 
 The BMI Calculator App prioritizes the privacy and security of user data. It does not store any personal information, and all calculations are performed locally on the user's device.
@@ -21,9 +21,9 @@ The BMI Calculator App prioritizes the privacy and security of user data. It doe
 ## Usage Instructions
 Launch the app on your device.
 
-Enter your height in the provided input field. You can input your height in either centimeters (cm) or feet and inches (ft/in).
+Enter your height in the provided input field. You can input your height in centimeters (cm).
 
-Enter your weight in the provided input field. You can input your weight in either kilograms (kg) or pounds (lb).
+Enter your weight in the provided input field. You can input your weight in kilograms (kg).
 
 The BMI value will be calculated instantly and displayed on the screen.
 
@@ -52,7 +52,7 @@ here, is the link if you want to download the app: [Download](https://drive.goog
 
 
 App Interface:
-![SS1] <img src = "https://github.com/asmit-gupta/bmi_app/assets/76779874/9672188b-bf4f-479a-95f5-14cb6d3457c0" width ="600" height="300" >
+![SS1](https://github.com/asmit-gupta/bmi_app/assets/76779874/9672188b-bf4f-479a-95f5-14cb6d3457c0)
 
 ![SS2](https://github.com/asmit-gupta/bmi_app/assets/76779874/08d68f73-79a0-4c93-b950-3e723b4991ce)
 
