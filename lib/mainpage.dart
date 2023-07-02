@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 //Colors for bg
@@ -45,12 +46,15 @@ class _MainPageState extends State<MainPage> {
   final _heightcontroller = TextEditingController();
   final _agecontroller = TextEditingController();
 
+  //int value fpr reset button
+  bool reset = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: currbg,
       body: Container(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(12.0),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -85,7 +89,12 @@ class _MainPageState extends State<MainPage> {
                   Expanded(
                     child: TextFormField(
                       controller: _agecontroller,
-                      keyboardType: TextInputType.number,
+                      keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true, signed: false),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.allow(
+                            RegExp(r'^\d+\.?\d{0,2}'))
+                      ],
                       decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: currtext),
@@ -141,7 +150,12 @@ class _MainPageState extends State<MainPage> {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      keyboardType: TextInputType.number,
+                      keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true, signed: false),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.allow(
+                            RegExp(r'^\d+\.?\d{0,2}'))
+                      ],
                       controller: _weightcontroller,
                       decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
@@ -165,7 +179,12 @@ class _MainPageState extends State<MainPage> {
                   ),
                   Expanded(
                     child: TextFormField(
-                      keyboardType: TextInputType.number,
+                      keyboardType: const TextInputType.numberWithOptions(
+                          decimal: true, signed: false),
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.allow(RegExp(
+                            (r'^(?!300)(?:\d{1,2}|1\d{2}|2[0-9]{2})(?:\.\d{0,2})?$')))
+                      ],
                       controller: _heightcontroller,
                       decoration: InputDecoration(
                         enabledBorder: UnderlineInputBorder(
@@ -231,7 +250,7 @@ class _MainPageState extends State<MainPage> {
                             ],
                           ),
                         );
-                      } else if (_agecontroller.text.startsWith('-') ||
+                      } else if (_agecontroller.text.length > 6 ||
                           _agecontroller.text == '0') {
                         showDialog(
                           context: context,
@@ -262,7 +281,7 @@ class _MainPageState extends State<MainPage> {
                             ],
                           ),
                         );
-                      } else if (_weightcontroller.text.startsWith('-') ||
+                      } else if (_weightcontroller.text.length > 6 ||
                           _weightcontroller.text == '0') {
                         showDialog(
                           context: context,
@@ -294,7 +313,7 @@ class _MainPageState extends State<MainPage> {
                             ],
                           ),
                         );
-                      } else if (_heightcontroller.text.startsWith('-') ||
+                      } else if (_heightcontroller.text.length > 6 ||
                           _heightcontroller.text == '0') {
                         showDialog(
                           context: context,
@@ -342,6 +361,7 @@ class _MainPageState extends State<MainPage> {
                             currbutton = resbutton;
                             title = res.toInt().toString();
                             subtitle = 'Time to eat some healthy snacks!';
+                            reset = true;
                           });
                         } else if (res > 25) {
                           //overweight
@@ -351,8 +371,8 @@ class _MainPageState extends State<MainPage> {
                             currbg = overweight;
                             currbutton = resbutton;
                             title = res.toInt().toString();
-                            subtitle =
-                                'Break free from excess weight and discover a lighter life';
+                            subtitle = 'Time to discover a lighter life';
+                            reset = true;
                           });
                         } else {
                           //normal
@@ -362,6 +382,7 @@ class _MainPageState extends State<MainPage> {
                             currbutton = resbutton;
                             title = res.toInt().toString();
                             subtitle = 'You\'re doing well!';
+                            reset = true;
                           });
                         }
                       }
@@ -373,6 +394,36 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
+              Container(
+                  child: reset
+                      ? Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10.0),
+                            child: TextButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: currbutton),
+                              onPressed: () {
+                                setState(() {
+                                  title = 'BMI App';
+                                  subtitle = 'Calculate your BMI';
+                                  currbg = defaultBg;
+                                  currbutton = buttoncolor;
+                                  currtext = nortext;
+                                  cal = overtext;
+                                  _agecontroller.clear();
+                                  _heightcontroller.clear();
+                                  _weightcontroller.clear();
+                                  reset = false;
+                                });
+                              },
+                              child: Text(
+                                'Reset',
+                                style: GoogleFonts.lato(color: cal),
+                              ),
+                            ),
+                          ),
+                        )
+                      : null),
             ],
           ),
         ),
