@@ -118,6 +118,7 @@ class _MainPageState extends State<MainPage> {
                       padding: const EdgeInsets.only(top: 18),
                       child: DropdownButton<String>(
                         alignment: Alignment.center,
+                        underline: const SizedBox(),
                         isExpanded: true,
                         value: dropdownValue,
                         items: <String>['Male', 'Female', 'Others']
