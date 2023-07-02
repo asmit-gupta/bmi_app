@@ -52,7 +52,7 @@ here, is the link if you want to download the app: [Download](https://drive.goog
 
 
 App Interface:
-![SS1](https://github.com/asmit-gupta/bmi_app/assets/76779874/9672188b-bf4f-479a-95f5-14cb6d3457c0)
+![SS1] <img src = "https://github.com/asmit-gupta/bmi_app/assets/76779874/9672188b-bf4f-479a-95f5-14cb6d3457c0" width ="600" height="300" >
 
 ![SS2](https://github.com/asmit-gupta/bmi_app/assets/76779874/08d68f73-79a0-4c93-b950-3e723b4991ce)
 
