@@ -4,6 +4,7 @@ import 'mainpage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  //this is done to lock the orientation of the app so that it doesn't rotate when device is rotated.
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
